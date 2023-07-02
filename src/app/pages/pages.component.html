@@ -1,0 +1,45 @@
+<mat-toolbar>
+    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+     <mat-icon *ngIf="!sidenav.opened"> 
+       menu
+     </mat-icon>
+     <mat-icon *ngIf="sidenav.opened"> 
+       close
+     </mat-icon>
+    </button>
+     <span>Empleados</span>
+ </mat-toolbar>
+ <mat-sidenav-container class="example-container">
+   <mat-sidenav #sidenav="matSidenav" mode="side" opened>
+     <img class="mat-elevation-z8" src="https://static.vecteezy.com/system/resources/thumbnails/008/214/517/small/abstract-geometric-logo-or-infinity-line-logo-for-your-company-free-vector.jpg" alt="">
+     <h4 class="name">Juan Suarez</h4>
+     <p class="designation">Desarollo</p>
+ 
+     <mat-divider></mat-divider>
+     <button mat-button class="menu-buttom">
+       <mat-icon>home</mat-icon>
+       <span><a [routerLink]="['layout/Details/id']">Inicio</a></span>
+     </button>
+     <button mat-button class="menu-buttom">
+      <mat-icon>person</mat-icon>
+      <span><a [routerLink]="['layout/Details/id']">Detalles</a></span>
+    </button>
+     <button mat-button class="menu-buttom">
+       <mat-icon>list</mat-icon>
+       <span><a [routerLink]="['layout/Home']">Lista</a></span>
+     </button>
+     <mat-divider></mat-divider>
+
+     <button mat-button class="menu-buttom">
+      
+       <mat-icon>logout</mat-icon>
+       <span><a [routerLink]="['/login']">cerrar sesion</a></span>
+     </button>
+  
+   </mat-sidenav>
+   <mat-sidenav-content>
+     <div class="content mat-elevation-z8">
+       <router-outlet></router-outlet>
+     </div>
+   </mat-sidenav-content>
+ </mat-sidenav-container> 
